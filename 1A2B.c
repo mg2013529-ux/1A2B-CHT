@@ -67,22 +67,10 @@ void auto_1a2b() {
         strcpy(guess, pool[0].data);
         printf("%s\n", guess);
 
-        char res[10];
-        if (!fgets(res, sizeof(res), stdin)) {
-            break;
-        }
-
-        int len = strlen(res);
-        while (len > 0 && (res[len-1] == '\n' || res[len-1] == '\r')) {
-            res[--len] = 0;
-        }
-
-        if (strlen(res) < 3) {
-            continue;
-        }
-
-        int A = res[0] - '0';
-        int B = res[2] - '0';
+        int ab;
+        scanf("%d", &ab);
+        int A = ab / 10;
+        int B = ab % 10;
 
         if (A < 0 || A > 4 || B < 0 || B > 4 || A + B > 4) {
             continue;
